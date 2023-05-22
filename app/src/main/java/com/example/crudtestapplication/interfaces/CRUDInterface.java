@@ -19,7 +19,7 @@ public interface CRUDInterface {
     @GET("product/{id}")
     Call<Product> getOne(@Path("id") long id);
 
-    @POST
+    @POST("product")
     Call<Product> create(@Body ProductDTO dto);
 
 }

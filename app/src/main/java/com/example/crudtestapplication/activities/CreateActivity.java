@@ -110,8 +110,6 @@ public class CreateActivity extends AppCompatActivity {
                 toast.show();
                 Log.e("Throw err: ", t.getMessage());
             }
-
-
         });
     }
 

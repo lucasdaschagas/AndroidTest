@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.CreateActivity">
+    android:layout_height="match_parent"
+    tools:context=".activities.EditActivity">
 
     <EditText
         android:id="@+id/nameText"
@@ -24,15 +24,14 @@
         android:inputType="number"
         android:hint="product price"/>
     <Button
-        android:id="@+id/createButton"
+        android:id="@+id/editButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="28dp"
-        android:text="Create"
+        android:text="Edit"
         android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:backgroundTint="@color/green"
-        android:drawableLeft="@drawable/baseline_add_circle_outline_24"/>
-
+        android:drawableLeft="@drawable/baseline_mode_edit_24"/>
 
 </LinearLayout>

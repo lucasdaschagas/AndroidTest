@@ -17,7 +17,6 @@ import java.util.List;
 
 public class ProductsAdapter extends BaseAdapter {
     List<Product> productList;
-
     Context context;
     TextView nameText;
     Button viewButton;

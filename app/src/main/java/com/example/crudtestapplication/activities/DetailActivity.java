@@ -2,8 +2,11 @@ package com.example.crudtestapplication.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +25,8 @@ public class DetailActivity extends AppCompatActivity {
     TextView idText;
     TextView nameText;
     TextView priceText;
-
+    Button editButton;
+    Product product;
     CRUDInterface crudInterface;
 
     @Override
@@ -32,10 +36,18 @@ public class DetailActivity extends AppCompatActivity {
         idText=findViewById(R.id.idText);
         nameText=findViewById(R.id.nameText);
         priceText=findViewById(R.id.priceText);
+        editButton = findViewById(R.id.editButton);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callEdit();
+            }
+        });
         long id = getIntent().getExtras().getLong("id");
         getOne(id);
 
     }
+
 
     private void getOne(long id) {
         Retrofit retrofit = new Retrofit.Builder()
@@ -52,7 +64,7 @@ public class DetailActivity extends AppCompatActivity {
                     toast.show();
                     Log.e("Response err: ", response.message());
                 }
-                Product product = response.body();
+                product = response.body();
                 idText.setText(String.valueOf(product.getId()));
                 nameText.setText(product.getName());
                 priceText.setText(String.valueOf(product.getPrice()));
@@ -65,5 +77,10 @@ public class DetailActivity extends AppCompatActivity {
                 Log.e("Throw err: ", t.getMessage());
             }
         });
+    }
+
+    private void callEdit() {
+        Intent intent = new Intent(getApplicationContext(), EditActivity.class);
+        intent.putExtra("id", product.getId());
     }
 }
