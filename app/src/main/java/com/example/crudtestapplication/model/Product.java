@@ -2,9 +2,10 @@ package com.example.crudtestapplication.model;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Product {
+public class Product implements Serializable {
     private long id;
     private String name;
     private int price;
